@@ -31,9 +31,14 @@
             "arrivalAtD": "10:10 am"
         },
         {
-            "companyName": "B",
+            "companyName": "A",
             "departureFromC": "5:00 pm",
             "arrivalAtD": "6:00 pm"
+        },
+        {
+            "companyName": "B",
+            "departureFromC": "5:00 pm",
+            "arrivalAtD": "6:10 pm"
         }
     ]
 }

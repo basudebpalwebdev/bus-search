@@ -2,6 +2,7 @@ import { BusTimeTable } from '../datatypes/BusTimeTable';
 import dataSource from './../../db/datasource.json';
 import { timeSeperator } from '../helpers/TimeSeperator';
 import rearrangeListWithCurrentTime from '../helpers/RearrangeList';
+import bestTravelOptionFinder from '../helpers/BestTravelOptionFinder';
 
 export class BusSelectionService {
     private busTimeTableList: BusTimeTable[] = new Array<BusTimeTable>();
@@ -23,16 +24,21 @@ export class BusSelectionService {
         });
     }
 
-    private async sortBusTimeTableByDepartureTimeDesc() {
+    private async sortBusTimeTableByDepartureTimeDesc(): Promise<BusTimeTable[]> {
         return this.busTimeTableList.sort((a: BusTimeTable, b: BusTimeTable) => {
             return a.departureFromC <= b.departureFromC ? -1 : 1;
         });
     }
 
-    async startListAfterCurrentTime() {
+    async startListAfterCurrentTime(): Promise<BusTimeTable[]> {
         const currentTime: Date = new Date();
         const sortedList: BusTimeTable[] = await this.sortBusTimeTableByDepartureTimeDesc();
         return await rearrangeListWithCurrentTime(sortedList, currentTime);
+    }
+
+    async getBestTravelOption(): Promise<BusTimeTable> {
+        const rearrangedTimeTable: BusTimeTable[] = await this.startListAfterCurrentTime();
+        return await bestTravelOptionFinder(rearrangedTimeTable);
     }
 
     printBusTimeTable() {

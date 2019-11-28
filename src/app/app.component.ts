@@ -18,5 +18,6 @@ export class AppComponent implements OnInit {
         this.busSelectionService.printBusTimeTable();
         const rearrangedDisplayList: BusTimeTable[] = await this.busSelectionService.startListAfterCurrentTime();
         console.log(rearrangedDisplayList);
+        const bestTravelOption: BusTimeTable = await this.busSelectionService.getBestTravelOption();
     }
 }
