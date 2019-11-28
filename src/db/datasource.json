@@ -2,8 +2,8 @@
     "timeTable": [
         {
             "companyName": "A",
-            "departureFromC": "12:35 pm",
-            "arrivalAtD": "1:35 pm"
+            "departureFromC": "12:35 am",
+            "arrivalAtD": "1:35 am"
         },
         {
             "companyName": "B",

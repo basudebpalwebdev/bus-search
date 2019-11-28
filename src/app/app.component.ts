@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusSelectionService } from './services/BusSelectionService';
+import { BusTimeTable } from './datatypes/BusTimeTable';
 
 @Component({
     selector: 'app-root',
@@ -13,7 +14,9 @@ export class AppComponent implements OnInit {
 
     }
 
-    ngOnInit() {
+    async ngOnInit() {
         this.busSelectionService.printBusTimeTable();
+        const rearrangedDisplayList: BusTimeTable[] = await this.busSelectionService.startListAfterCurrentTime();
+        console.log(rearrangedDisplayList);
     }
 }

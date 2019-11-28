@@ -5,7 +5,7 @@ export function timeSeperator(timeString: string): { hour: number, minute: numbe
     const currentTimeMinutes: number = Number.parseInt(currentTime.split(':')[1], 10);
     if (beforeNoon && currentTimeHours === 12) {
         currentTimeHours = 0;
-    } else if (beforeNoon) {
+    } else if (currentTimeHours !== 12) {
         currentTimeHours += 12;
     }
     return { hour: currentTimeHours, minute: currentTimeMinutes };
