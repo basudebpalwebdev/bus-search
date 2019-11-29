@@ -8,7 +8,7 @@ export class BusSelectionService {
     private busTimeTableList: BusTimeTable[] = new Array<BusTimeTable>();
 
     constructor() {
-        const currentTime: Date = new Date();
+        let currentTime = new Date();
         dataSource.timeTable.map((data) => {
             const busTimeTable: BusTimeTable = new BusTimeTable();
             busTimeTable.companyName = data.companyName;
@@ -24,24 +24,20 @@ export class BusSelectionService {
         });
     }
 
-    private async sortBusTimeTableByDepartureTimeDesc(): Promise<BusTimeTable[]> {
-        return this.busTimeTableList.sort((a: BusTimeTable, b: BusTimeTable) => {
+    private sortBusTimeTableByDepartureTimeDesc(busTimeTableList: BusTimeTable[]) {
+        return busTimeTableList.sort((a: BusTimeTable, b: BusTimeTable) => {
             return a.departureFromC <= b.departureFromC ? -1 : 1;
         });
     }
 
-    async startListAfterCurrentTime(): Promise<BusTimeTable[]> {
-        const currentTime: Date = new Date();
-        const sortedList: BusTimeTable[] = await this.sortBusTimeTableByDepartureTimeDesc();
-        return await rearrangeListWithCurrentTime(sortedList, currentTime);
+    startListAfterCurrentTime() {
+        const sortedList: BusTimeTable[] = this.sortBusTimeTableByDepartureTimeDesc(this.busTimeTableList);
+        return rearrangeListWithCurrentTime(sortedList);
     }
 
-    async getBestTravelOption(): Promise<BusTimeTable> {
-        const rearrangedTimeTable: BusTimeTable[] = await this.startListAfterCurrentTime();
-        return await bestTravelOptionFinder(rearrangedTimeTable);
+    getBestTravelOption() {
+        const rearrangedTimeTable: BusTimeTable[] = this.startListAfterCurrentTime();
+        return bestTravelOptionFinder(rearrangedTimeTable);
     }
 
-    printBusTimeTable() {
-        console.log(this.busTimeTableList);
-    }
 }

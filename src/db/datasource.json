@@ -16,6 +16,36 @@
             "arrivalAtD": "3:00 pm"
         },
         {
+            "companyName": "A",
+            "departureFromC": "3:10 pm",
+            "arrivalAtD": "4:20 pm"
+        },
+        {
+            "companyName": "B",
+            "departureFromC": "3:20 pm",
+            "arrivalAtD": "4:10 pm"
+        },
+        {
+            "companyName": "B",
+            "departureFromC": "4:15 pm",
+            "arrivalAtD": "5:40 pm"
+        },
+        {
+            "companyName": "A",
+            "departureFromC": "4:20 pm",
+            "arrivalAtD": "6:10 pm"
+        },
+        {
+            "companyName": "B",
+            "departureFromC": "6:15 pm",
+            "arrivalAtD": "7:50 pm"
+        },
+        {
+            "companyName": "A",
+            "departureFromC": "6:20 pm",
+            "arrivalAtD": "7:30 pm"
+        },
+        {
             "companyName": "B",
             "departureFromC": "8:00 am",
             "arrivalAtD": "9:45 am"

@@ -1,8 +1,9 @@
 import { BusTimeTable } from '../datatypes/BusTimeTable';
 
-export default async function rearrangeListWithCurrentTime(sortedList: BusTimeTable[], currentDate: Date) {
+export default function rearrangeListWithCurrentTime(sortedList: BusTimeTable[]) {
     const beforeCurrentTimeList: BusTimeTable[] = new Array<BusTimeTable>();
     const afterCurrentTimeList: BusTimeTable[] = new Array<BusTimeTable>();
+    const currentDate: Date = new Date();
     sortedList.map((item) => {
         if (item.departureFromC <= currentDate) {
             item.departureFromC.setTime(item.departureFromC.getTime() + 86400000);
