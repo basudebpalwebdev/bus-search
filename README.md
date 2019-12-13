@@ -23,7 +23,7 @@ Conditions:
 Example Time table file(can be a text or csv)
 
 | Company | Departure from C | Arrival at D |
-----------+------------------+---------------
+|---------|------------------|--------------|
 |    A    |    12:35 pm      |    1:35 pm   |
 |    B    |    2:00 am       |    2:45 pm   |
 |    A    |    2:00 am       |    3:00 pm   |
