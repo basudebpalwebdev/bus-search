@@ -26,8 +26,8 @@ export class TimeTableComponent implements OnInit {
 
     }
 
-    async ngOnInit() {
-        this.busTimeTableList = await this.busSelectionService.startListAfterCurrentTime();
+    ngOnInit() {
+        this.busTimeTableList = this.busSelectionService.startListAfterCurrentTime();
         this.busTimeTableListFormatted = formatListDateTime(this.busTimeTableList);
         this.matTableDataSource = new MatTableDataSource<FormattedBusTimeTable>(this.busTimeTableListFormatted);
         this.length = this.busTimeTableList.length;
